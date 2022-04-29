@@ -17,10 +17,16 @@ const client = new Client({
   puppeteer: {
     headless: true,
     args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--unhandled-rejections=strict'
-  ]},
+        '--disable-gpu',
+        '--disable-dev-shm-usage',
+        '--disable-setuid-sandbox',
+        '--no-first-run',
+        '--no-sandbox',
+        '--no-zygote',
+        '--single-process',
+        '--unhandled-rejections=strict'
+    ]
+}
 });
 
 client.on('qr', qr => {
