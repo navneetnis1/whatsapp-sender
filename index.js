@@ -148,6 +148,7 @@ const sendMessages = async (messages) => {
 
     return console.log('sent');
   });
+  
 }
 
 
@@ -162,18 +163,19 @@ const sendMessages = async (messages) => {
 //sendMessages(messages);
 
 
+// app.use('/', async (req, res, next) => {
+//   console.log('i will send message');
+//   const number = req.query.number;
+//   const message = req.query.message;
+//   console.log(number);
+//   sendMessage(number, message);
+//   return res.json({ sent: true });
+// });
+
 app.use('/', async (req, res, next) => {
   console.log('i will send message');
-  const number = req.query.number;
-  const message = req.query.message;
-  console.log(number);
-  sendMessage(number, message);
-  return res.json({ sent: true });
-});
-
-app.use('/sendMessages', async (req, res, next) => {
-  console.log('i will send message');
   const messages = req.body;
+  console.log('I can send These body = ', req.body);
   sendMessages(messages);
   return res.json({ sent: true });
 });
