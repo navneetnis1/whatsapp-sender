@@ -17,13 +17,8 @@ const client = new Client({
   puppeteer: {
     headless: true,
     args: [
-        '--disable-gpu',
-        '--disable-dev-shm-usage',
-        '--disable-setuid-sandbox',
-        '--no-first-run',
         '--no-sandbox',
-        '--no-zygote',
-        '--single-process',
+        '--disable-setuid-sandbox',
         '--unhandled-rejections=strict'
     ]
 }
@@ -66,10 +61,12 @@ client.initialize();
 
 
 function sendMessage(number, message) {
+    console.log('i am being called: ', number, message);
+
     const client = new Client({
       authStrategy: new LocalAuth({
-        clientId: "example",
-        dataPath: ".wwebjs_auth"
+        clientId: "lamrod-whatsapp-sender",
+        dataPath: ".wwebjs_auth2"
     }),
     puppeteer: { 
           headless: true,
@@ -79,6 +76,8 @@ function sendMessage(number, message) {
             '--unhandled-rejections=strict'
         ]},
     });
+
+    console.log(client);
 
     client.on('ready', () => {
       console.log('Im Ready now');
