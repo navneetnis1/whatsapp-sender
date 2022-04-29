@@ -10,18 +10,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //comment start//
 const client = new Client({
-  authStrategy: new LocalAuth({
-    clientId: "example",
+authStrategy: new LocalAuth({
+    clientId: "lamrod-whatsapp-sender",
     dataPath: ".wwebjs_auth2"
 }),
-  puppeteer: {
+puppeteer: { 
     headless: true,
     args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--unhandled-rejections=strict'
-    ]
-}
+    ]},
 });
 
 client.on('qr', qr => {
