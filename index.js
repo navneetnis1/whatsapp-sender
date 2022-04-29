@@ -117,10 +117,10 @@ const sendMessages = async (messages) => {
       ]},
   });
 
-  client.initialize().catch(_ => _);
+  client2.initialize().catch(_ => _);
 
-  client.on('disconnected', () => console.log('I am disconnected'))
-  client.on('ready', async () => {
+  client2.on('disconnected', () => console.log('I am disconnected'))
+  client2.on('ready', async () => {
 
     console.log('im ready Now');
 
@@ -133,7 +133,7 @@ const sendMessages = async (messages) => {
         }
         const chatId = '91'+ item.number + "@c.us";
         console.log(chatId, item.message);
-        await client.sendMessage(chatId, item.message);
+        await client2.sendMessage(chatId, item.message);
         setTimeout(() => resolve(), 40000);
       });
       return item;
@@ -144,7 +144,7 @@ const sendMessages = async (messages) => {
     await Promise.all(promises);
     
     //setTimeout(() => client.destroy(), 1000);
-    client.destroy();
+    client2.destroy();
 
     return console.log('sent');
   });
