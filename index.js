@@ -103,13 +103,13 @@ const sendMessages = async (messages) => {
   console.log('I can send These messages = ', messages);
 
 
-  const client = new Client({
+  const client2 = new Client({
     authStrategy: new LocalAuth({
-      clientId: "example",
-      dataPath: ".wwebjs_auth"
+      clientId: "lamrod-whatsapp-sender",
+      dataPath: ".wwebjs_auth2"
   }),
   puppeteer: { 
-        headless: false,
+        headless: true,
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
