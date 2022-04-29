@@ -1,0 +1,25 @@
+{
+  "name": "whatsapp-sender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navneetnis1/whatsapp-sender.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navneetnis1/whatsapp-sender/issues"
+  },
+  "homepage": "https://github.com/navneetnis1/whatsapp-sender#readme",
+  "dependencies": {
+    "express": "^4.18.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.16.6"
+  }
+}
