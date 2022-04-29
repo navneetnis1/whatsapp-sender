@@ -52,6 +52,7 @@ client.on('ready', () => {
 
     // Sending message.
     client.sendMessage(chatId, text);
+    setTimeout(() => client.destroy(), 1000);
 });
 
 client.initialize();
