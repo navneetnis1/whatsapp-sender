@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const client = new Client({
   authStrategy: new LocalAuth({
     clientId: "example",
-    dataPath: ".wwebjs_auth"
+    dataPath: ".wwebjs_auth2"
 }),
   puppeteer: {
     headless: true,
