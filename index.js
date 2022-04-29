@@ -77,8 +77,6 @@ function sendMessage(number, message) {
         ]},
     });
 
-    console.log(client2);
-
     client2.on('authenticated', () => {
         console.log('AUTHENTICATED');
     });
