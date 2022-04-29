@@ -62,7 +62,7 @@ client.initialize();
 function sendMessage(number, message) {
     console.log('i am being called: ', number, message);
 
-    const client = new Client({
+    const client2 = new Client({
       authStrategy: new LocalAuth({
         clientId: "lamrod-whatsapp-sender",
         dataPath: ".wwebjs_auth2"
@@ -76,19 +76,28 @@ function sendMessage(number, message) {
         ]},
     });
 
-    console.log(client);
+    console.log(client2);
 
-    client.on('ready', () => {
+    client2.on('authenticated', () => {
+        console.log('AUTHENTICATED');
+    });
+    
+    client2.on('auth_failure', msg => {
+    // Fired if session restore was unsuccessful
+    console.error('AUTHENTICATION FAILURE', msg);
+    });
+
+    client2.on('ready', () => {
       console.log('Im Ready now');
         const chatId = '91'+ number + "@c.us";
         console.log(chatId, message);
-        client.sendMessage(chatId, message);
-        setTimeout(() => client.destroy(), 10000);
+        client2.sendMessage(chatId, message);
+        setTimeout(() => client2.destroy(), 10000);
         console.log('sent');
 
     });
 
-    client.initialize();
+    client2.initialize();
 }
 
 const sendMessages = async (messages) => {
