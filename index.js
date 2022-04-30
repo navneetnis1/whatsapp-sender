@@ -60,44 +60,44 @@ client.initialize();
 //comment end
 
 
-// function sendMessage(number, message) {
-//     console.log('i am being called: ', number, message);
+function sendMessage(number, message) {
+    console.log('i am being called: ', number, message);
 
-//     const client2 = new Client({
-//       authStrategy: new LocalAuth({
-//         clientId: "lamrod-whatsapp-sender",
-//         dataPath: ".wwebjs_auth2"
-//     }),
-//     puppeteer: { 
-//           headless: true,
-//           args: [
-//             '--no-sandbox',
-//             '--disable-setuid-sandbox',
-//             '--unhandled-rejections=strict'
-//         ]},
-//     });
+    const client2 = new Client({
+      authStrategy: new LocalAuth({
+        clientId: "lamrod-whatsapp-sender",
+        dataPath: ".wwebjs_auth2"
+    }),
+    puppeteer: { 
+          headless: true,
+          args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--unhandled-rejections=strict'
+        ]},
+    });
 
-//     client2.on('authenticated', () => {
-//         console.log('AUTHENTICATED');
-//     });
+    client2.on('authenticated', () => {
+        console.log('AUTHENTICATED');
+    });
     
-//     client2.on('auth_failure', msg => {
-//     // Fired if session restore was unsuccessful
-//     console.error('AUTHENTICATION FAILURE', msg);
-//     });
+    client2.on('auth_failure', msg => {
+    // Fired if session restore was unsuccessful
+    console.error('AUTHENTICATION FAILURE', msg);
+    });
 
-//     client2.on('ready', () => {
-//       console.log('Im Ready now');
-//         const chatId = '91'+ number + "@c.us";
-//         console.log(chatId, message);
-//         client2.sendMessage(chatId, message);
-//         setTimeout(() => client2.destroy(), 10000);
-//         console.log('sent');
+    client2.on('ready', () => {
+      console.log('Im Ready now');
+        const chatId = '91'+ number + "@c.us";
+        console.log(chatId, message);
+        client2.sendMessage(chatId, message);
+        setTimeout(() => client2.destroy(), 10000);
+        console.log('sent');
 
-//     });
+    });
 
-//     client2.initialize();
-// }
+    client2.initialize();
+}
 
 const sendMessages = async (messages) => {
   console.log('I can send These messages = ', messages);
