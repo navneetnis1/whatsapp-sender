@@ -117,9 +117,18 @@ const sendMessages = async (messages) => {
       ]},
   });
 
-  client2.initialize().catch(_ => _);
+//   client2.initialize().catch(_ => _);
 
   client2.on('disconnected', () => console.log('I am disconnected'))
+  client2.on('authenticated', (object) => {
+    console.log('AUTHENTICATED');
+    
+  });
+  
+  client2.on('auth_failure', msg => {
+    // Fired if session restore was unsuccessful
+    console.error('AUTHENTICATION FAILURE', msg);
+  });
   client2.on('ready', async () => {
 
     console.log('im ready Now');
@@ -147,7 +156,9 @@ const sendMessages = async (messages) => {
     client2.destroy();
 
     return console.log('sent');
+    
   });
+  client2.initialize().catch(e => console.log(e));
   
 }
 
