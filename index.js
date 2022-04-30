@@ -158,7 +158,7 @@ const sendMessages = async (messages) => {
     return console.log('sent');
     
   });
-  client2.initialize().catch(e => console.log(e));
+  client2.initialize();
   
 }
 
