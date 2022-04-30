@@ -117,10 +117,9 @@ const sendMessages = async (messages) => {
       ]},
   });
 
-//   client2.initialize().catch(_ => _);
 
   client2.on('disconnected', () => console.log('I am disconnected'))
-  client2.on('authenticated', (object) => {
+  client2.on('authenticated', () => {
     console.log('AUTHENTICATED');
     
   });
