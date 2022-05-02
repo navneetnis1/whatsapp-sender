@@ -11,49 +11,49 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //comment start//
-const client = new Client({
-  authStrategy: new LocalAuth({
-    clientId: "Testing",
-    dataPath: ".wwebjs_auth"
-}),
-  puppeteer: {
-    headless: true,
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--unhandled-rejections=strict'
-  ]},
-});
+// const client = new Client({
+//   authStrategy: new LocalAuth({
+//     clientId: "Testing",
+//     dataPath: ".wwebjs_auth"
+// }),
+//   puppeteer: {
+//     headless: true,
+//     args: [
+//       '--no-sandbox',
+//       '--disable-setuid-sandbox',
+//       '--unhandled-rejections=strict'
+//   ]},
+// });
 
-client.on('qr', qr => {
-  console.log(qr);
-  qrcode.generate(qr, {large: true});
-});
-
-
+// client.on('qr', qr => {
+//   console.log(qr);
+//   qrcode.generate(qr, {large: true});
+// });
 
 
 
-client.on('ready', () => {
-  console.log('Client is ready!');
-  const number = "919610417000";
-    console.log('sending....');
 
-    // Your message.
-    const text = "hello";
 
-    // Getting chatId from the number.
-    // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
-    const chatId = number + "@c.us";
+// client.on('ready', () => {
+//   console.log('Client is ready!');
+//   const number = "919610417000";
+//     console.log('sending....');
 
-    // Sending message.
-    client.sendMessage(chatId, text);
-    console.log('Message sent');
-    setTimeout(() => client.destroy(), 10000);
-    console.log('Client Destroyed');
-});
+//     // Your message.
+//     const text = "hello";
 
-client.initialize();
+//     // Getting chatId from the number.
+//     // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
+//     const chatId = number + "@c.us";
+
+//     // Sending message.
+//     client.sendMessage(chatId, text);
+//     console.log('Message sent');
+//     setTimeout(() => client.destroy(), 10000);
+//     console.log('Client Destroyed');
+// });
+
+// client.initialize();
 
 //comment end
 
