@@ -82,7 +82,7 @@ function sendMessage(number, message) {
         client.sendMessage(chatId, message);
         setTimeout(() => { 
             client.destroy()
-            .then(() => conslole.log('Client Destroyed'))
+            .then(() => console.log('Client Destroyed'))
          }, 10000);
         console.log('sent');
 
