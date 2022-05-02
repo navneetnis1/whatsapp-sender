@@ -179,7 +179,7 @@ app.use('/sendMessage', async (req, res, next) => {
 });
 
 app.use('/', async (req, res, next) => {
-  console.log('i will send message');
+  console.log('I will send array Messages');
   const messages = req.body;
   sendMessages(messages);
   return res.json({ sent: true });
