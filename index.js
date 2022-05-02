@@ -152,7 +152,10 @@ const sendMessages = async (messages) => {
     for (const message of messages) promises.push(await asyncSubProcessing(message));
     await Promise.all(promises);
     
-    setTimeout(() => client.destroy(), 10000);
+    setTimeout(() => { 
+        client.destroy()
+        .then(() => console.log('Client Destroyed'))
+     }, 10000);
     
 
     return console.log('sent');
