@@ -80,7 +80,10 @@ function sendMessage(number, message) {
         const chatId = '91'+ number + "@c.us";
         console.log(chatId, message);
         client.sendMessage(chatId, message);
-        setTimeout(() => client.destroy(), 10000);
+        setTimeout(() => { 
+            client.destroy()
+            .then(() => conslole.log('Client Destroyed'))
+         }, 10000);
         console.log('sent');
 
     });
