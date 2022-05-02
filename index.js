@@ -137,9 +137,9 @@ const sendMessages = async (messages) => {
         const chatId = '91'+ item.number + "@c.us";
         console.log(chatId, item.message);
         await client.sendMessage(chatId, item.message)
-            .then((d) => console.log(d))
+            .then((d) => console.log(d.data))
             .catch(e => console.log(e));
-            
+
         setTimeout(() => resolve(), 4000);
       });
       return item;
