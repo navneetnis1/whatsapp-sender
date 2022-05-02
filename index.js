@@ -49,7 +49,7 @@ client.on('ready', () => {
     // Sending message.
     client.sendMessage(chatId, text);
     console.log('Message sent');
-    setTimeout(() => client.destroy(), 1000);
+    setTimeout(() => client.destroy(), 10000);
     console.log('Client Destroyed');
 });
 
@@ -183,7 +183,7 @@ app.use('/', async (req, res, next) => {
 });
 
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8001;
 app.listen(port, () => {
   console.log('whatsapp webapp listening on port !'+port);
 });
