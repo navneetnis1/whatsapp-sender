@@ -152,10 +152,10 @@ const sendMessages = async (messages) => {
     for (const message of messages) promises.push(await asyncSubProcessing(message));
     await Promise.all(promises);
     
-    setTimeout(() => { 
-        client.destroy()
-        .then(() => console.log('Client Destroyed'))
-     }, 10000);
+    // setTimeout(() => { 
+    //     client.destroy()
+    //     .then(() => console.log('Client Destroyed'))
+    //  }, 10000);
     
 
     return console.log('sent');
@@ -166,7 +166,9 @@ const sendMessages = async (messages) => {
 
 // ///i can do anything
 
-
+// await client.sendMessage(chatId, item.message)
+//             .then((d) => console.log(d.data))
+//             .catch(e => console.log(e));
 // const messages = [
 //   {number: '919887981988', message: 'hello 1'},
 //   {number: '919610417000', message: 'hello 1'}
