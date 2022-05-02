@@ -80,7 +80,7 @@ function sendMessage(number, message) {
         const chatId = '91'+ number + "@c.us";
         console.log(chatId, message);
         client.sendMessage(chatId, message);
-        setTimeout(() => client.destroy(), 1000);
+        setTimeout(() => client.destroy(), 10000);
         console.log('sent');
 
     });
@@ -146,8 +146,8 @@ const sendMessages = async (messages) => {
     for (const message of messages) promises.push(await asyncSubProcessing(message));
     await Promise.all(promises);
     
-    setTimeout(() => client.destroy(), 4000);
-    client.destroy();
+    setTimeout(() => client.destroy(), 10000);
+    
 
     return console.log('sent');
   });
