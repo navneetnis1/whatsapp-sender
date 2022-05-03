@@ -31,7 +31,14 @@ client.on('qr', qr => {
 });
 
 
+client.on('authenticated', () => {
+    console.log('AUTHENTICATED');
+});
 
+client.on('auth_failure', msg => {
+    // Fired if session restore was unsuccessful
+    console.error('AUTHENTICATION FAILURE', msg);
+});
 
 
 client.on('ready', () => {
