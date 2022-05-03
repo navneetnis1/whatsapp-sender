@@ -91,7 +91,7 @@ function sendMessage(number, message, company) {
     client.initialize();
 }
 
-const sendMessages = async (messages) => {
+const sendMessages = async (messages, company) => {
   console.log('I can send These messages = ', messages);
 
 
@@ -111,7 +111,7 @@ const sendMessages = async (messages) => {
 
   const client = new Client({
     authStrategy: new LocalAuth({
-           clientId: "Testing",
+           clientId: company,
            dataPath: ".wwebjs_auth"
        }),
        puppeteer: { 
@@ -187,8 +187,9 @@ app.use('/sendMessage', async (req, res, next) => {
 
 app.use('/', async (req, res, next) => {
   console.log('I will send array Messages');
-  const messages = req.body;
-  sendMessages(messages);
+  const messages = req.body.messages;
+  const company = req.body.company;
+  sendMessages(messages, company);
   return res.json({ sent: true });
 });
 
