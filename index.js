@@ -17,7 +17,7 @@ const client = new Client({
     dataPath: ".wwebjs_auth"
 }),
   puppeteer: {
-    headless: false,
+    headless: true,
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
@@ -117,7 +117,7 @@ const sendMessages = async (messages, company) => {
            dataPath: ".wwebjs_auth"
        }),
        puppeteer: { 
-               headless: false,
+               headless: true,
                args: [
                  '--no-sandbox',
                  '--disable-setuid-sandbox',
