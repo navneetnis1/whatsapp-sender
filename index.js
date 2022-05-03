@@ -58,11 +58,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //comment end
 
 
-function sendMessage(number, message) {
+function sendMessage(number, message, company) {
 
   const client = new Client({
     authStrategy: new LocalAuth({
-           clientId: "Testing",
+           clientId: company,
            dataPath: ".wwebjs_auth"
        }),
        puppeteer: { 
@@ -179,8 +179,9 @@ app.use('/sendMessage', async (req, res, next) => {
   console.log('i will send message');
   const number = req.query.number;
   const message = req.query.message;
-  console.log(number);
-  sendMessage(number, message);
+  const company = req.query.company;
+  console.log(number,message,company);
+  sendMessage(number, message,company);
   return res.json({ sent: true });
 });
 
